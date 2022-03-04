@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../gallery/image.css";
 import ImageGallery from "./ImageGallery";
 
@@ -7,7 +7,6 @@ function Search() {
   function searchData(e) {
     let data = e.target.value.toLowerCase();
     setName(data);
-  
   }
   return (
     <>

@@ -1,16 +1,11 @@
-import logo from "./logo.svg";
-import "./App.css";
-import React, { Fragment } from "react";
-import Index from "./components/headers/Index";
-import ImageGallery from "./components/gallery/ImageGallery";
+import React from "react";
 import Search from "./components/gallery/search";
 
-function App(props) {
-  
+function App() {
   return (
-    <React.Fragment>
+    <>
       <Search />
-    </React.Fragment>
+    </>
   );
 }
 
