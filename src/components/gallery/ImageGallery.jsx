@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-
+import React from "react";
 import "../gallery/image.css";
 
-function ImageGallery(props) {
+function ImageGallery({ nabeel }) {
   const imageData = [
     {
       name: "snowy mountains",
@@ -22,7 +21,6 @@ function ImageGallery(props) {
     },
     {
       name: "sea view",
-      url: "https://imaXges.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     },
     {
       name: "sunset",
@@ -34,28 +32,22 @@ function ImageGallery(props) {
     },
   ];
 
-  const filteredData = imageData.filter((data) => {
-    if (props.nabeel === "") {
-      return data;
-    } else {
-      return data.name.includes(props.nabeel);
-    }
-  });
+  const filteredData = imageData.filter(({ name }) => name.includes(nabeel));
 
   return (
     <>
       <div className="container">
-        {" "}
         <h1>Image Gallery </h1>
         <hr />
         <div className="row">
-          {filteredData.map((data) => {
+          {filteredData.map(({ url, name }) => {
+            if (!url) return null;
             return (
               <>
                 <div className="column">
                   <div className="card">
-                    <img src={data.url} style={{ marginTop: "12px" }} />
-                    <h2>{data.name}</h2>
+                    <img src={url} style={{ marginTop: "12px" }} />
+                    <h2>{name}</h2>
                   </div>
                 </div>
               </>
